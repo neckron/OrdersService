@@ -1,0 +1,15 @@
+{
+  "cost": 170.0,
+  "orderRequest": {
+    "goods": [
+      {
+        "quantity": 2,
+        "goodId": "apple"
+      },
+      {
+        "quantity": 2,
+        "goodId": "orange"
+      }
+    ]
+  }
+}

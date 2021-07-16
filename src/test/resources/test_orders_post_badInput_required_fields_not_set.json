@@ -1,0 +1,6 @@
+{ "orderRequest" :
+[
+  { "quantity" :  1},
+  { "productId" : "pineapple" }
+]
+}
