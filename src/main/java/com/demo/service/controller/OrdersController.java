@@ -1,12 +1,17 @@
 package com.demo.service.controller;
 
-import com.demo.service.dto.request.*;
-import com.demo.service.dto.response.*;
-import com.demo.service.service.*;
-import org.springframework.http.*;
-import org.springframework.validation.annotation.*;
-import org.springframework.web.bind.annotation.*;
-import javax.validation.*;
+import com.demo.service.dto.request.OrderRequestDTO;
+import com.demo.service.dto.response.OrderSummaryResponseDTO;
+import com.demo.service.service.OrdersService;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/orders")

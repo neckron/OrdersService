@@ -3,15 +3,15 @@ package com.demo.service.dto.response;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
-public class OrderSummaryResponseDTO {
+public class OrderResponseDTO {
 
-    private double cost;
-    private List<GoodsOrderResponseDTO> goodOrderResponse;
-
+    private List<GoodsOrderResponseDTO> goods;
 }

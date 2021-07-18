@@ -1,10 +1,13 @@
 package com.demo.service.dto.request;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.validation.*;
-import javax.validation.constraints.*;
-import java.util.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -14,6 +17,6 @@ public class OrderRequestDTO {
 
     @NotEmpty(message = "you should specified a list of goods")
     @Valid
-    private List<GoodsOrderDTO> goods;
+    private List<GoodsOrderRequestDTO> goods;
 
 }

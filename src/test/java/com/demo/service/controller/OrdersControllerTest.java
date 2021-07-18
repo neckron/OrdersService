@@ -1,20 +1,23 @@
 package com.demo.service.controller;
 
-import com.demo.service.dto.request.*;
-import com.demo.service.dto.response.*;
-import com.demo.service.service.*;
-import com.demo.service.util.*;
+import com.demo.service.dto.request.GoodsOrderRequestDTO;
+import com.demo.service.dto.request.OrderRequestDTO;
+import com.demo.service.dto.response.GoodsOrderResponseDTO;
+import com.demo.service.dto.response.OrderSummaryResponseDTO;
+import com.demo.service.service.OrdersServiceImpl;
+import com.demo.service.util.TestsUtils;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 
-import org.junit.jupiter.api.*;
-import org.junit.runner.*;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.boot.test.autoconfigure.web.servlet.*;
-import org.springframework.boot.test.mock.mockito.*;
-import org.springframework.http.*;
-import org.springframework.test.context.junit4.*;
-import org.springframework.test.web.servlet.*;
-
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -24,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(OrdersController.class)
-public class OrdersControllerTest {
+class OrdersControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -105,23 +108,30 @@ public class OrdersControllerTest {
     private OrderRequestDTO buildOrderRequestDTOList() {
         return OrderRequestDTO.builder()
                 .goods(Arrays.asList(
-                        GoodsOrderDTO.builder().goodId("apple").quantity(2).build() ,
-                        GoodsOrderDTO.builder().goodId("orange").quantity(2).build()
+                        GoodsOrderRequestDTO.builder().goodId("apple").quantity(2).build() ,
+                        GoodsOrderRequestDTO.builder().goodId("orange").quantity(2).build()
                 )).build();
+    }
+
+    private List<GoodsOrderResponseDTO> buildOrderResponseDTOList() {
+        return Arrays.asList(
+                        GoodsOrderResponseDTO.builder().goodId("apple").quantity(2).cost(10d).build() ,
+                        GoodsOrderResponseDTO.builder().goodId("orange").quantity(2).cost(50d).build()
+                );
     }
 
     private OrderRequestDTO buildInvalidOrderRequestDTOList() {
         return OrderRequestDTO.builder()
                 .goods(Arrays.asList(
-                        GoodsOrderDTO.builder().quantity(2).build() ,
-                        GoodsOrderDTO.builder().goodId("orange").build()
+                        GoodsOrderRequestDTO.builder().quantity(2).build() ,
+                        GoodsOrderRequestDTO.builder().goodId("orange").build()
                 )).build();
     }
 
     private OrderSummaryResponseDTO buildSummaryResponse() {
         return OrderSummaryResponseDTO.builder()
-                .cost(170)
-                .orderRequest(buildOrderRequestDTOList())
+                .cost(60)
+                .goodOrderResponse(buildOrderResponseDTOList())
                 .build();
     }
 

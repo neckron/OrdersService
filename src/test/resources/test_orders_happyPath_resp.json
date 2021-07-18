@@ -1,15 +1,15 @@
 {
-  "cost": 170.0,
-  "orderRequest": {
-    "goods": [
-      {
-        "quantity": 2,
-        "goodId": "apple"
-      },
-      {
-        "quantity": 2,
-        "goodId": "orange"
-      }
-    ]
-  }
+  "cost":60.0,
+  "goodOrderResponse":[
+    {
+      "quantity":2,
+      "goodId":"apple",
+      "cost":10.0
+    },
+    {
+      "quantity":2,
+      "goodId":"orange",
+      "cost":50.0
+    }
+  ]
 }

@@ -3,10 +3,10 @@ Content-Type: application/json
 
 {
   "goods" : [ {
-    "quantity" : 1,
+    "quantity" : 2,
     "goodId" : "apple"
   }, {
-    "quantity" : 1,
+    "quantity" : 3,
     "goodId" : "orange"
   } ]
 }
