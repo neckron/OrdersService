@@ -28,6 +28,12 @@ public class RestExceptionHandler {
                 .body("field "+ex.getBindingResult().getFieldError().getField()+" - "+ex.getBindingResult().getFieldError().getDefaultMessage());
     }
 
+    @ExceptionHandler(NotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public void handleNotFoundException(NotFoundException ex){
+        logger.error("::: {} - {}", ex.getClass(), ex.getMessage());
+    }
+
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     protected void handleGeneralException(Exception ex) {

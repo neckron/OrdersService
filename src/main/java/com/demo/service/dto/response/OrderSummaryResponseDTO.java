@@ -13,5 +13,6 @@ public class OrderSummaryResponseDTO {
 
     private double cost;
     private List<GoodsOrderResponseDTO> goodOrderResponse;
+    private String orderId;
 
 }
